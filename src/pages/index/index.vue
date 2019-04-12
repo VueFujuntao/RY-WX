@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandle">
+  <div>
 
     <div class="userinfo" @click="bindViewTap">
       <!--<img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />-->
@@ -21,7 +21,7 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
 
-    <a href="/pages/counter/main" class="counter">你好佩奇！</a>
+    <a href="/pages/counter/main" class="counter">你好佩奇</a>
 
     <div class="all">
         <div class="left">

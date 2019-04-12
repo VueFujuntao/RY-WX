@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/main",
     "pages/logs/main",
-    "pages/counter/main"
+    "pages/counter/main",
+    "pages/login/main",
+    "pages/registration/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,8 +17,8 @@
     "backgroundColor": "#fafafa",
     "selectedColor": "#333",
     "borderStyle": "white",
-
-    "list": [{
+    "list": [
+      {
       "text": "首页",
       "pagePath": "pages/index/main",
       "iconPath": "static/tabs/home.png",
@@ -26,8 +28,8 @@
       "pagePath": "pages/logs/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
-    }],
-
+    }
+  ],
     "items": [{
       "name": "首页",
       "pagePath": "pages/index/main",
