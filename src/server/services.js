@@ -1,8 +1,8 @@
 /**
  * @author wxj
  * @date 2019/4/11 15:19
- * @Last Modified by wxj
- * @Last Modified time 2019/4/11 15:19
+ * @Last Modified by: fujuntao
+ * @Last Modified time: 2019-04-12 17:32:53
  */
 import Fly from 'flyio/dist/npm/wx'
 var fly = new Fly()
@@ -35,6 +35,10 @@ const requests = {
   },
   postlist (data) {
     return fly.post('https://192.168.1.249:8443/', data)
+  },
+  // 注册用户
+  registerUser (data) {
+    return fly.post('/register', data)
   }
 }
 
