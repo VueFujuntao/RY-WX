@@ -1,3 +1,4 @@
+
 <script>
 export default {
   created () {
@@ -9,23 +10,28 @@ export default {
      * 百度：mpvue === swan, mpvuePlatform === 'swan'
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
+    // mpvue.getUserInfo({
+    //   success: function(res) {
+    //     console.log(12)
+    //   }
+    // })
+    // 查看是否授权
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
+    // let logs
+    // if (mpvuePlatform === 'my') {
+    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync({
+    //     key: 'logs',
+    //     data: logs
+    //   })
+    // } else {
+    //   logs = mpvue.getStorageSync('logs') || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync('logs', logs)
+    // }
   },
-  log () {
-    console.log(`log at:${Date.now()}`)
+  mounted () {
   }
 }
 </script>
