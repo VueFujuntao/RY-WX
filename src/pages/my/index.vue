@@ -25,12 +25,11 @@ export default {
   },
 
   created () {
-    wx.getUserInfo({
-      success: response => {
-        console.log()
-        this.avatarUrl = response.userInfo.avatarUrl
-      }
-    })
+    // wx.getUserInfo({
+    //   success: response => {
+    //     this.avatarUrl = response.userInfo.avatarUrl
+    //   }
+    // })
   },
   mounted () {
 
@@ -56,10 +55,7 @@ export default {
   width: 100%;
   height: 160px;
   position: relative;
-  /* background-image: url('./user.png');
-  background-position: 50%;
-  background-size: 50% 100%;
-  background-repeat: no-repeat; */
+  overflow-y: hidden;
 }
 .top > img.avatarUrl {
   border-radius: 50%;

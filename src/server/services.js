@@ -2,12 +2,12 @@
  * @author wxj
  * @date 2019/4/11 15:19
  * @Last Modified by: fujuntao
- * @Last Modified time: 2019-04-12 17:32:53
+ * @Last Modified time: 2019-04-16 10:45:03
  */
 import Fly from 'flyio/dist/npm/wx'
 var fly = new Fly()
 
-var host = 'http://192.168.1.249:12460'
+var host = 'http://192.168.2.234:8990'
 // 添加请求拦截器
 fly.interceptors.request.use((config, promise) => {
   // 给所有请求添加自定义header
@@ -38,7 +38,7 @@ const requests = {
   },
   // 注册用户
   registerUser (data) {
-    return fly.post('/register', data)
+    return fly.put('/agent/save', data)
   }
 }
 

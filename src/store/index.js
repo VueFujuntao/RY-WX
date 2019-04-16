@@ -6,26 +6,12 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import UserInfo from './modules/userInfo'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    name: 'hello vuex!'
-  },
-  mutations: {
-    updateName (state, param) {
-      state.name = param
-    }
-  },
-  getters: {
-    getName (state) {
-      return state.name
-    }
-  },
-  actions: {
-    updateNameAction (context, param) {
-      context.commit('updateName', param)
-    }
+  modules: {
+    UserInfo: UserInfo
   }
 })

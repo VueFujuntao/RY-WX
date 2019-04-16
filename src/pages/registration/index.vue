@@ -1,19 +1,20 @@
 <template>
-  <div>
-    姓名：
+  <div class="register-context">
+    用户名：
     <input type="text" class="input" v-model="information.name" key="1">
-    电话：
+    密码
     <input type="digit" class="input" v-model="information.phone">
-    公司：
+    姓名
     <input type="text" class="input" v-model="information.company">
-    公司编号：
+    手机号码
     <input type="Number" class="input" v-model="information.companyNumber">
-    密码：
-      <input type="password" @input="moneyControl" class="input" v-model="information.password">
-      确认密码：
-      <input type="password" @input="moneyControl" class="input" v-model="information.confirmPassword">
+    项目名称
+    <input type="password" @input="moneyControl" class="input" v-model="information.password">
+    公司名称
+    <input type="password" @input="moneyControl" class="input" v-model="information.confirmPassword">
+    公司地址
+    <input type="password" @input="moneyControl" class="input">
     <button @click="register">注册</button>
-    <button >登入</button>
   </div>
 </template>
 
@@ -36,10 +37,14 @@ export default {
   methods: {
     register () {
       let { name, phone, company, companyNumber, password } = this.information
-      console.log(this.information.password === this.information.confirmPassword)
       if (name !== '' && phone !== '' && company !== '' && companyNumber !== '' && password !== '') {
         if (this.information.password === this.information.confirmPassword) {
-          console.log('两者密码不相同')
+          this.$server.registerUser({'username': 'czq1111', 'password': 'qwer123456'}).then(response => {
+            if (response.code === 200) {
+              console.log(response)
+              console.log(this)
+            }
+          })
         }
       }
     },
