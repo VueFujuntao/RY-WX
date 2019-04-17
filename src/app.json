@@ -3,7 +3,7 @@
     "pages/index/main",
     "pages/login/main",
     "pages/registration/main",
-    "pages/my/main"
+    "pages/list/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
