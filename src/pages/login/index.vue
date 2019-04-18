@@ -34,12 +34,36 @@ export default {
   methods: {
     // 登入 功能
     login () {
-      console.log(12312)
-      wx.navigateTo({
-        url: '../list/main'
+      let that = this
+      if (that.phone == '' || that.password == '') return
+      // 初始化
+      const db = wx.cloud.database()
+      db.collection('user').where({
+        phone: that.phone,
+        password: that.password
+      }).get({
+        success: function (res) {
+          console.log(res)
+          // 登录失败
+          if (res.length === 0) {
+
+          } else {
+            // 登录成功 跳转至SN页面 保存用户名
+            that.$store.dispatch('setUserInfo', res.data[0])
+            wx.setStorage({
+              key: 'userInfo',
+              data: res.data[0]
+            })
+            // 重定向 不能返回
+            wx.redirectTo({
+              url: '../list/main'
+            })
+          }
+        },
+        fail: function (res) {
+          console.log(res)
+        }
       })
-      if (this.phone == '' || this.password == '') return
-      console.log(this.phone)
     },
     // 跳转至注册页面
     register () {
@@ -73,10 +97,11 @@ export default {
 .logo-text {
   text-align: center;
   font-size: 16px;
+  margin-bottom: 30px;
 }
 
 .input {
-  height: 35px;
+  height: 40px;
   margin-top: 20px;
 }
 
@@ -86,7 +111,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   border-radius: 3px;
-  height: 35px;
+  height: 40px;
   display: flex;
   background-color: white;
 }
@@ -100,8 +125,8 @@ export default {
 }
 
 .icon {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background-image: url('./user.png');
   background-repeat: no-repeat;
   background-size: 70%;

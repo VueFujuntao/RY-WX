@@ -8,34 +8,44 @@
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">用户名</span>
-        <input type="text" class="input" v-model="information.name">
+        <input type="text" class="input" v-model="information.username">
       </div>
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">密码</span>
-        <input type="password" class="input" v-model="information.phone">
+        <input type="password" class="input" v-model="information.password">
       </div>
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">姓名</span>
-        <input type="text" class="input" v-model="information.company">
+        <input type="text" class="input" v-model="information.name">
       </div>
      <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">手机号码</span>
-        <input type="Number" class="input" v-model="information.companyNumber">
+        <input type="Number" class="input" v-model="information.phone">
      </div>
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">项目名称</span>
-        <input type="text" @input="moneyControl" disabled class="input" v-model="information.password">
-        <i class="select"></i>
+        <input type="text" @input="moneyControl" disabled class="input" v-model="information.projectname">
+        <i class="select" @click="setSeclect('projectsBool')"></i>
+        <div class="projects" v-show="projectsBool">
+          <div :key="item.ID" v-for="item in projects" @click="selectProject(item.ID, 'projectsBool', 'projectname')">{{item.ID}}</div>
+        </div>
       </div>
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">公司名称</span>
-        <input type="text" @input="moneyControl" disabled class="input" v-model="information.confirmPassword">
-        <i class="select"></i>
+        <input type="text" @input="moneyControl" disabled class="input" v-model="information.company">
+        <i class="select" @click="setSeclect('companysBool')"></i>
+        <div class="projects" v-show="companysBool">
+          <div
+            :key="item._id"
+            v-for="item in companys"
+            @click="selectProject(item.companyName, 'companysBool', 'company')"
+          >{{item.companyName}}</div>
+        </div>
       </div>
       <button class="register" @click="register">确定</button>
     </div>
@@ -50,35 +60,93 @@ export default {
     return {
       information: {
         name: '',
+        username: '',
         phone: '',
         company: '',
-        companyNumber: '',
-        password: '',
-        confirmPassword: ''
+        projectname: '',
+        password: ''
       },
-      closeSuccessBool: true
+      closeSuccessBool: false,
+      projects: [],
+      projectsBool: false,
+      companys: [],
+      companysBool: false
     }
+  },
+  created () {
+
+  },
+  mounted () {
+    let that = this
+    const db = wx.cloud.database({})
+    // 请求项目列表
+    db.collection('project').where({}).get({
+      success: function (res) {
+        that.$store.dispatch('pushProjects', res.data)
+        that.projects = that.$store.getters.getProjects
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
+    // 请求公司名称列表
+    db.collection('companys').where({}).get({
+      success: function (res) {
+        that.companys = res.data
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
   },
   methods: {
     register () {
-      this.closeSuccessBool = true
-      let { name, phone, company, companyNumber, password } = this.information
-      if (name !== '' && phone !== '' && company !== '' && companyNumber !== '' && password !== '') {
-        if (this.information.password === this.information.confirmPassword) {
-          this.$server.registerUser({'username': 'czq1111', 'password': 'qwer123456'}).then(response => {
-            if (response.code === 200) {
-              console.log(response)
-              console.log(this)
-            }
-          })
+      let that = this
+      let { name, phone, company, username, password, projectname } = this.information
+      const db = wx.cloud.database()
+      db.collection('user').add({
+        data: {
+          name: name,
+          password: password,
+          company: company,
+          phone: phone,
+          username: username,
+          projectname: projectname
+        },
+        success: function (res) {
+          that.closeSuccessBool = true
+          console.log(res)
+        },
+        fail: err => {
+          console.log(err)
         }
-      }
+      })
+      // if (name !== '' && phone !== '' && company !== '' && companyNumber !== '' && password !== '') {
+      //   if (this.information.password === this.information.confirmPassword) {
+      //     // this.$server.registerUser({'username': 'czq1111', 'password': 'qwer123456'}).then(response => {
+      //     //   if (response.code === 200) {
+      //     //     console.log(response)
+      //     //     console.log(this)
+      //     //   }
+      //     // })
+      //   }
+      // }
     },
     moneyControl (e) {
     },
     // 关闭 注册成功弹板
     closeSuccess () {
       this.closeSuccessBool = false
+    },
+    // 开挂 下拉列表
+    setSeclect (value) {
+      this[value] = !this[value]
+    },
+    // 选择项目 公司名字
+    selectProject (item, value, name) {
+      console.log(item)
+      this[value] = !this[value]
+      this.information[name] = item
     }
   },
   components: {
@@ -128,6 +196,7 @@ export default {
 span.text {
   margin-left: 1px;
   line-height: 40px;
+  font-size: 18px;
 }
 /* 星号 */
 .item-i {
@@ -153,5 +222,25 @@ span.text {
   position: absolute;
   top: 15px;
   right: 5px;
+  z-index: 1000;
+}
+
+.projects {
+  position: absolute;
+  top: 38px;
+  right: 0px;
+  border: 1px solid #cbcbcb;
+  width: 230px;
+  z-index: 3000;
+  background-color: white;
+  max-height: 150px;
+  overflow: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.projects > div {
+  height: 25px;
+  line-height: 25px;
 }
 </style>

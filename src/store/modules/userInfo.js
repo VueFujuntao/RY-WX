@@ -1,23 +1,23 @@
 
 const state = {
-  userName: ''
+  userInfo: ''
 }
 
 const getters = {
   getUserInfo (state) {
-    return state.userName
+    return state.userInfo
   }
 }
 
 const mutations = {
-  mutationUserInfo (state, value) {
-    state.userName = value
+  setUserInfo (state, value) {
+    state.userInfo = value
   }
 }
 
 const actions = {
-  invokePushItems (context, value) {
-    context.commit('mutationUserInfo', value)
+  setUserInfo (context, value) {
+    context.commit('setUserInfo', value)
   }
 }
 

@@ -23,49 +23,28 @@ export default {
   data () {
     return {
       compnoentss: true,
-      valueData: ''
+      valueData: '',
+      userBool: false
     }
   },
   created () {},
   mounted () {
-    wx.setStorage({
-      key: 'username',
-      data: 'ew'
-    })
-    wx.getStorage({
-      key: 'username',
-      success (res) {
-        console.log(res)
-      }
-    })
-    this.$server.getlist().then(res => {
-      console.log(res)
-      const username = this.$store.getters.getUserInfo
-      console.log(username)
-      this.$store.dispatch('invokePushItems', '2312')
-      console.log(this.$store.getters.getUserInfo)
-    })
+    this.getUserStorage()
   },
   methods: {
-    // 扫一扫 功能
-    scanCode () {
-      wx.scanCode({
-        success: (res) => {
-          console.log(res)
-        }
-      })
-    },
+
     // 跳转至 登入页面
     toLoginPage (e) {
-      wx.navigateTo({
-        url: '../login/main'
-      })
-    },
-    // 跳转至 注册页面
-    toRegisterPage () {
-      wx.navigateTo({
-        url: '../registration/main'
-      })
+      console.log(this.userBool)
+      if (this.userBool === true) {
+        wx.navigateTo({
+          url: '../list/main'
+        })
+      } else {
+        wx.navigateTo({
+          url: '../login/main'
+        })
+      }
     },
     // 手工输入
     toPointer () {
@@ -74,11 +53,29 @@ export default {
     // 获取得到的校验码
     getValueData (value) {
       this.valueData = value
+    },
+    // 查找缓存
+    getUserStorage () {
+      let that = this
+      wx.getStorage({
+        key: 'userInfo',
+        success (res) {
+          console.log(res)
+          if (res.errMsg === 'getStorage:ok') {
+            that.$store.dispatch('setUserInfo', res.data)
+            that.userBool = true
+          }
+        }
+      })
     }
   },
   components: {
     Scancode,
     Pointer
+  },
+  onShow () {
+    console.log(123)
+    this.getUserStorage()
   }
 }
 </script>

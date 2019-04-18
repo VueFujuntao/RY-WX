@@ -7,11 +7,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import UserInfo from './modules/userInfo'
+import Projects from './modules/projects'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    UserInfo: UserInfo
+    UserInfo: UserInfo,
+    Projects: Projects
   }
 })

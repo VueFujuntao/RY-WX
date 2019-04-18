@@ -116,7 +116,7 @@ export default {
 }
 .pointer {
   position: absolute;
-  bottom: 45%;
+  bottom: 35%;
   width: 100%;
   text-align: center;
   color: #f4784a;

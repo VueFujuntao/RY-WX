@@ -2,7 +2,7 @@
   <div>
     <div class="scanCode-background">
       <div class="scanCode">
-        <div class="scancode-text">扫一扫</div>
+        <div class="scancode-text" @click="scanCode">扫一扫</div>
       </div>
     </div>
     <div class="pointer" @click="click">
@@ -18,6 +18,15 @@ export default {
   methods: {
     click () {
       this.$emit('toPointer')
+    },
+    // 扫一扫 功能
+    scanCode () {
+      wx.scanCode({
+        success: (res) => {
+          let cn = JSON.parse(res.result).cn
+          console.log(cn)
+        }
+      })
     }
   }
 }
