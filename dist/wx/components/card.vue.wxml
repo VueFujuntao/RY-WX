@@ -1,0 +1,12 @@
+<template name="82eef634">
+  <view class="_div data-v-29f746f3 table-card">
+    <view class="_div data-v-29f746f3 card-bord">
+      <view class="_div data-v-29f746f3 close" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view class="_div data-v-29f746f3 success-logo"></view>
+      <view class="_div data-v-29f746f3 success">您已注册成功！</view>
+      <view class="_hr data-v-29f746f3 hr"></view>
+      <view class="_div data-v-29f746f3 text">请联系浙江泰源科技有限公司进行授权!</view>
+      <view class="_div data-v-29f746f3 text icon">客服电话 15767766009</view>
+    </view>
+  </view>
+</template>

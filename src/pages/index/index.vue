@@ -1,69 +1,81 @@
 <template>
   <div class="content">
     <div class="font" @click="toLoginPage">代理商入口</div>
-    <div class="scanCode-context">
-      <div class="scanCode-background">
-        <div class="scanCode" @click="scanCode"></div>
-      </div>
-    </div>
+    <Scancode v-if="compnoentss" @toPointer="toPointer"></Scancode>
+    <Pointer v-if="!compnoentss" @getValueData="getValueData" @toPointer="toPointer"></Pointer>
     <div class="text">
-        <div>| |||</div>
-        <div class="text-size">校验码</div>
-        <div class="input-div">
-          <input type="password" class="input">
-        </div>
+      <div class="erweima"></div>
+      <div class="text-size">
+        激活码:
+      </div>
+      <div class="input-div">
+        <input  class="input" v-model="valueData" disabled>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Scancode from '../../components/scancode.vue'
+import Pointer from '../../components/pointer.vue'
 
 export default {
   data () {
     return {
+      compnoentss: true,
+      valueData: '',
+      userBool: false
     }
   },
   created () {},
   mounted () {
-    wx.setStorage({
-      key: 'username',
-      data: 'ew'
-    })
-    wx.getStorage({
-      key: 'username',
-      success (res) {
-        console.log(res)
-      }
-    })
-    this.$server.getlist().then(res => {
-      console.log(res)
-      const username = this.$store.getters.getUserInfo
-      console.log(username)
-      this.$store.dispatch('invokePushItems', '2312')
-      console.log(this.$store.getters.getUserInfo)
-    })
+    this.getUserStorage()
   },
   methods: {
-    // 扫一扫 功能
-    scanCode () {
-      wx.scanCode({
-        success: (res) => {
-          console.log(res)
-        }
-      })
-    },
+
     // 跳转至 登入页面
     toLoginPage (e) {
-      wx.navigateTo({
-        url: '../my/main'
-      })
+      console.log(this.userBool)
+      if (this.userBool === true) {
+        wx.navigateTo({
+          url: '../list/main'
+        })
+      } else {
+        wx.navigateTo({
+          url: '../login/main'
+        })
+      }
     },
-    // 跳转至 注册页面
-    toRegisterPage () {
-      wx.navigateTo({
-        url: '../registration/main'
+    // 手工输入
+    toPointer () {
+      this.compnoentss = !this.compnoentss
+    },
+    // 获取得到的校验码
+    getValueData (value) {
+      this.valueData = value
+    },
+    // 查找缓存
+    getUserStorage () {
+      let that = this
+      wx.getStorage({
+        key: 'userInfo',
+        success (res) {
+          console.log(res)
+          if (res.errMsg === 'getStorage:ok') {
+            that.$store.dispatch('setUserInfo', res.data)
+            that.userBool = true
+          }
+        }
       })
     }
+  },
+  components: {
+    Scancode,
+    Pointer
+  },
+  onShow () {
+    console.log(123)
+    this.getUserStorage()
   }
 }
 </script>
@@ -73,63 +85,9 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-}
-
-.scanCode-context {
-  width: 100%;
-  height: 100%;
-  background-color: #fef1e2;
-}
-
-.scanCode-background {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  transform: translate(-50%, 0%);
-  /* background-color: white; */
-  border-radius: 50%;
-  /* animation: scanCode 0.00001s linear infinite; */
-}
-
-.scanCode {
-  width: 90%;
-  height: 90%;
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  transform: translate(50%, -50%);
-  background-color: #fffdfa;
-  border-radius: 50%;
-  box-shadow:  0 0 10px #ead3bd;
-}
-
-@-webkit-keyframes scanCode{
-  0%{
-    transform:rotate(0deg);
-    transform-origin: 50% 50%;
-  }
-
-  25%{
-    transform:rotate(90deg);
-    transform-origin: 50% 50%;
-  }
-
-  50%{
-    transform:rotate(180deg);
-    transform-origin: 50% 50%;
-  }
-
-  75%{
-    transform:rotate(270deg);
-    transform-origin: 50% 50%;
-  }
-
-  100%{
-    transform:rotate(360deg);
-    transform-origin: 50% 50%;
-  }
+  background-image: url('../../../static/images/background.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .text {
@@ -137,8 +95,7 @@ export default {
   height: 13%;
   position: absolute;
   background-color: white;
-  bottom: 30%;
-  /* padding: 10px 20px; */
+  bottom: 20%;
   display: flex;
   flex-direction: row ;
   align-items: center;
@@ -146,7 +103,7 @@ export default {
 }
 .text-size {
   margin-left: 10px;
-  font-size: 15px;
+  font-size: 18px;
 }
 .input-div {
   height: 25px;
@@ -154,7 +111,7 @@ export default {
 }
 .input {
   width: 140px;
-  border: 1px solid #dddddd;
+  border: none;
   color: #f15a24;
   height: 25px !important;
   padding-left: 6px;
@@ -176,7 +133,19 @@ export default {
   right: 0;
   padding-top: 10px;
   padding-right: 10px;
-  color: #f15a24;
+  margin-right: 10px;
+  color: #d2bea7;
   font-size: 18px;
+  background-image: url('./daili.png');
+  background-repeat: no-repeat;
+  background-position: 100% 80%;
+  background-size: 7%;
+}
+
+.erweima {
+  width: 38px;
+  height: 28px;
+  background-image: url('./erweima.png');
+  background-repeat: no-repeat;
 }
 </style>

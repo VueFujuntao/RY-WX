@@ -1,0 +1,3 @@
+<import src="/components/scancode.vue.wxml" />
+<import src="/components/pointer.vue.wxml" />
+<import src="/components/card.vue.wxml" />

@@ -13,6 +13,6 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '注册页面'
+    navigationBarTitleText: '注册'
   }
 }

@@ -1,0 +1,11 @@
+<import src="/components/scancode.vue.wxml" />
+<import src="/components/pointer.vue.wxml" /><template name="6885af00">
+  <view class="_div data-v-47f2ab14 content">
+    <view class="_div data-v-47f2ab14 font" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">代理商入口</view> <template wx:if="{{compnoentss}}" bindtoPointer="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="9733a880"></template> <template wx:if="{{!compnoentss}}" bindgetValueData="handleProxy" bindtoPointer="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="a2d20b52"></template>
+    <view class="_div data-v-47f2ab14 text">
+      <view class="_div data-v-47f2ab14 erweima"></view>
+      <view class="_div data-v-47f2ab14 text-size"> 激活码: </view>
+      <view class="_div data-v-47f2ab14 input-div"><input class="_input data-v-47f2ab14 input" value="{{valueData}}" bindinput="handleProxy" disabled data-eventid="{{'3'}}" data-comkey="{{$k}}" /></view>
+    </view>
+  </view>
+</template>
