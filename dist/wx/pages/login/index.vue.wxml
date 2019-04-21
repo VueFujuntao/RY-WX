@@ -1,17 +1,17 @@
-<template name="715664d7">
-  <view class="_div data-v-50c360eb login-content">
-    <view class="_h1 data-v-50c360eb logo"></view>
-    <view class="_div data-v-50c360eb logo-text">欢迎登陆泰源人员管理</view>
-    <view class="_div data-v-50c360eb input">
-      <view class="_div data-v-50c360eb input-div">
-        <view class="_i data-v-50c360eb user icon"></view> <input type="text" value="{{user}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-50c360eb" />
+<template name="307896db">
+  <view class="_div data-v-4682be70 login-content">
+    <view class="_h1 data-v-4682be70 logo"></view>
+    <view class="_div data-v-4682be70 logo-text">欢迎登陆泰源人员管理</view>
+    <view class="_div data-v-4682be70 input">
+      <view class="_div data-v-4682be70 input-div">
+        <view class="_i data-v-4682be70 user icon"></view> <input type="text" value="{{user}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-4682be70" />
       </view>
     </view>
-    <view class="_div data-v-50c360eb input">
-      <view class="_div data-v-50c360eb input-div">
-        <view class="_i data-v-50c360eb password icon"></view> <input type="password" value="{{password}}" bindinput="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_input data-v-50c360eb" />
+    <view class="_div data-v-4682be70 input">
+      <view class="_div data-v-4682be70 input-div">
+        <view class="_i data-v-4682be70 password icon"></view> <input type="password" value="{{password}}" bindinput="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_input data-v-4682be70" />
       </view>
     </view>
-    <view class="_div data-v-50c360eb buttons"><button class="_button data-v-50c360eb login" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">登录</button> <button class="_button data-v-50c360eb register" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">注册</button></view>
+    <view class="_div data-v-4682be70 buttons"><button class="_button data-v-4682be70 login" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">登录</button> <button class="_button data-v-4682be70 register" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">注册</button></view>
   </view>
 </template>

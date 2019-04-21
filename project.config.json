@@ -11,6 +11,7 @@
 		"checkInvalidKey": true
   },
 	"miniprogramRoot": "dist/wx/",
+	"cloudfunctionRoot": "dist/wx/functions/",
 	"compileType": "miniprogram",
 	"appid": "wx20a5cf9820401399",
 	"projectname": "my-project",

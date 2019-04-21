@@ -1,46 +1,39 @@
 require("../../common/manifest.js")
 require("../../common/vendor.js")
-global.webpackJsonpMpvue([3],{
+global.webpackJsonpMpvue([4],{
 
-/***/ 120:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(113);
 
 
-
-// add this to handle exception
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.errorHandler = function (err) {
-  if (console && console.error) {
-    console.error(err);
-  }
-};
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
 app.$mount();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   config: {
-    navigationBarTitleText: '注册'
+    navigationBarTitleText: '修改信息'
   }
 });
 
 /***/ }),
 
-/***/ 121:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_0cfe7be8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8db6849e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(119);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(122)
+  __webpack_require__(114)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -50,17 +43,17 @@ var normalizeComponent = __webpack_require__(2)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-0cfe7be8"
+var __vue_scopeId__ = "data-v-8db6849e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_0cfe7be8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8db6849e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "src\\pages\\registration\\index.vue"
+Component.options.__file = "src\\pages\\modifyInfor\\index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -71,9 +64,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0cfe7be8", Component.options)
+    hotAPI.createRecord("data-v-8db6849e", Component.options)
   } else {
-    hotAPI.reload("data-v-0cfe7be8", Component.options)
+    hotAPI.reload("data-v-8db6849e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -85,14 +78,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 122:
+/***/ 114:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 123:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,6 +148,7 @@ if (false) {(function () {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'modifyInfor',
   data: function data() {
     return {
       information: {
@@ -263,7 +257,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 124:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -317,33 +311,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "item-i"
   }, [_vm._v("*")]), _vm._v(" "), _c('span', {
     staticClass: "text"
-  }, [_vm._v("密码")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.information.password),
-      expression: "information.password"
-    }],
-    staticClass: "input",
-    attrs: {
-      "type": "password",
-      "eventid": '2'
-    },
-    domProps: {
-      "value": (_vm.information.password)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.information.password = $event.target.value
-      }
-    }
-  })], 1), _vm._v(" "), _c('div', {
-    staticClass: "form-item"
-  }, [_c('i', {
-    staticClass: "item-i"
-  }, [_vm._v("*")]), _vm._v(" "), _c('span', {
-    staticClass: "text"
   }, [_vm._v("姓名")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -354,7 +321,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "input",
     attrs: {
       "type": "text",
-      "eventid": '3'
+      "eventid": '2'
     },
     domProps: {
       "value": (_vm.information.name)
@@ -381,7 +348,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "input",
     attrs: {
       "type": "Number",
-      "eventid": '4'
+      "eventid": '3'
     },
     domProps: {
       "value": (_vm.information.phone)
@@ -409,7 +376,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "text",
       "disabled": "",
-      "eventid": '5'
+      "eventid": '4'
     },
     domProps: {
       "value": (_vm.information.projectname)
@@ -423,7 +390,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('i', {
     staticClass: "select",
     attrs: {
-      "eventid": '6'
+      "eventid": '5'
     },
     on: {
       "click": function($event) {
@@ -442,7 +409,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: item.ID,
       attrs: {
-        "eventid": '7_' + index
+        "eventid": '6_' + index
       },
       on: {
         "click": function($event) {
@@ -467,7 +434,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "text",
       "disabled": "",
-      "eventid": '8'
+      "eventid": '7'
     },
     domProps: {
       "value": (_vm.information.company)
@@ -481,7 +448,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }), _vm._v(" "), _c('i', {
     staticClass: "select",
     attrs: {
-      "eventid": '9'
+      "eventid": '8'
     },
     on: {
       "click": function($event) {
@@ -500,7 +467,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       key: item._id,
       attrs: {
-        "eventid": '10_' + index
+        "eventid": '9_' + index
       },
       on: {
         "click": function($event) {
@@ -511,7 +478,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }))], 1), _vm._v(" "), _c('button', {
     staticClass: "register",
     attrs: {
-      "eventid": '11'
+      "eventid": '10'
     },
     on: {
       "click": _vm.register
@@ -525,10 +492,10 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0cfe7be8", esExports)
+     require("vue-hot-reload-api").rerender("data-v-8db6849e", esExports)
   }
 }
 
 /***/ })
 
-},[120]);
+},[112]);

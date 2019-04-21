@@ -47,8 +47,9 @@ export default {
       }
     },
     // 手工输入
-    toPointer () {
+    toPointer (value) {
       this.compnoentss = !this.compnoentss
+      this.valueData = value
     },
     // 获取得到的校验码
     getValueData (value) {

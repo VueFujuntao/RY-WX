@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="scanCode-background">
-      <div class="scanCode">
-        <div class="scancode-text" @click="scanCode">扫一扫</div>
+      <div class="scanCode"  @click="scanCode">
+        <div class="scancode-text">扫一扫</div>
       </div>
     </div>
     <div class="pointer" @click="click">

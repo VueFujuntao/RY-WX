@@ -1,0 +1,31 @@
+<import src="/components/card.vue.wxml" /><template name="3fd83c1c">
+  <view class="_div data-v-8db6849e register-context"><template wx:if="{{closeSuccessBool}}" bindcloseSuccess="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="15d767ea"></template>
+    <view class="_div data-v-8db6849e hr-top"></view>
+    <view class="_div data-v-8db6849e hr-t"></view>
+    <view class="_div data-v-8db6849e form">
+      <view class="_div data-v-8db6849e form-item">
+        <view class="_i data-v-8db6849e item-i">*</view> <label class="_span data-v-8db6849e text">用户名</label> <input type="text" class="_input data-v-8db6849e input" value="{{information.username}}" bindinput="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" />
+      </view>
+      <view class="_div data-v-8db6849e form-item">
+        <view class="_i data-v-8db6849e item-i">*</view> <label class="_span data-v-8db6849e text">姓名</label> <input type="text" class="_input data-v-8db6849e input" value="{{information.name}}" bindinput="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" />
+      </view>
+      <view class="_div data-v-8db6849e form-item">
+        <view class="_i data-v-8db6849e item-i">*</view> <label class="_span data-v-8db6849e text">手机号码</label> <input type="Number" class="_input data-v-8db6849e input" value="{{information.phone}}" bindinput="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+      </view>
+      <view class="_div data-v-8db6849e form-item">
+        <view class="_i data-v-8db6849e item-i">*</view> <label class="_span data-v-8db6849e text">项目名称</label> <input type="text" bindinput="handleProxy" disabled class="_input data-v-8db6849e input" value="{{information.projectname}}" data-eventid="{{'4'}}" data-comkey="{{$k}}" />
+        <view class="_i data-v-8db6849e select" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}"></view>
+        <view class="_div data-v-8db6849e projects" hidden="{{!(projectsBool)}}">
+          <view wx:key="item.ID" key="{{item.ID}}" bindtap="handleProxy" data-eventid="{{'6_'+index}}" data-comkey="{{$k}}" wx:for="{{projects}}" wx:for-index="index" wx:for-item="item" class="_div data-v-8db6849e">{{item.ID}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-8db6849e form-item">
+        <view class="_i data-v-8db6849e item-i">*</view> <label class="_span data-v-8db6849e text">公司名称</label> <input type="text" bindinput="handleProxy" disabled class="_input data-v-8db6849e input" value="{{information.company}}" data-eventid="{{'7'}}" data-comkey="{{$k}}" />
+        <view class="_i data-v-8db6849e select" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}"></view>
+        <view class="_div data-v-8db6849e projects" hidden="{{!(companysBool)}}">
+          <view wx:key="item._id" key="{{item._id}}" bindtap="handleProxy" data-eventid="{{'9_'+index}}" data-comkey="{{$k}}" wx:for="{{companys}}" wx:for-index="index" wx:for-item="item" class="_div data-v-8db6849e">{{item.companyName}}</view>
+        </view>
+      </view> <button class="_button data-v-8db6849e register" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">确定</button>
+    </view>
+  </view>
+</template>

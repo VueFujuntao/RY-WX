@@ -1,6 +1,6 @@
 <template>
   <div class="list-content">
-    <div class="user-name">{{name}}</div>
+    <div class="user-name" @click="goModifyInfor">{{name}}</div>
     <div class="table">
       <div class="tr">
         <div class="th">序号</div>
@@ -104,6 +104,12 @@ export default {
       const db = wx.cloud.database({})
       that.total = await db.collection('sn').where({userid: userid}).count()
       return that.total.total
+    },
+    // 跳转至修改数据
+    goModifyInfor () {
+      wx.navigateTo({
+        url: '../modifyInfor/main'
+      })
     }
   }
 }

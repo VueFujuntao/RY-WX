@@ -1,15 +1,15 @@
-<template name="a2d20b52">
-  <view class="_div data-v-86c23dac">
-    <view class="_div data-v-86c23dac scanCode-background">
-      <view class="_div data-v-86c23dac border">
-        <view class="_div data-v-86c23dac border-border">
-          <view class="_div data-v-86c23dac jiaoyanma">校验码</view> <input type="password" value="{{valueData}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-86c23dac" />
+<template name="5889ee5a">
+  <view class="_div data-v-7ecb3445">
+    <view class="_div data-v-7ecb3445 scanCode-background">
+      <view class="_div data-v-7ecb3445 border">
+        <view class="_div data-v-7ecb3445 border-border">
+          <view class="_div data-v-7ecb3445 jiaoyanma">校验码</view> <input type="password" value="{{valueData}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-7ecb3445" />
         </view>
-        <view class="_div data-v-86c23dac button-div"><button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-86c23dac">确定</button></view>
+        <view class="_div data-v-7ecb3445 button-div"><button bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-7ecb3445">确定</button></view>
       </view>
     </view>
-    <view class="_div data-v-86c23dac pointer" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
-      <view class="_i data-v-86c23dac"></view> 扫一扫
+    <view class="_div data-v-7ecb3445 pointer" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+      <view class="_i data-v-7ecb3445"></view> 扫一扫
     </view>
   </view>
 </template>

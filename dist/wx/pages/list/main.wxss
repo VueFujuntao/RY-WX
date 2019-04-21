@@ -1,15 +1,16 @@
+@import "../../common/vendor.wxss";
 
-.list-content.data-v-3b92c09c {
+.list-content.data-v-6602fd8d {
   position: absolute;
   height: 100%;
   width: 100%;
 }
-.user-name.data-v-3b92c09c {
+.user-name.data-v-6602fd8d {
   border-bottom: 2rpx solid #bcbcbc;
   padding-bottom: 10rpx;
   padding-left: 10rpx;
 }
-.table.data-v-3b92c09c {
+.table.data-v-6602fd8d {
   width: 600rpx;
   margin: auto;
   margin-top: 50rpx;
@@ -18,23 +19,23 @@
   border-left: 2rpx solid #c6c6c6;
   border-bottom: 2rpx solid #c6c6c6;
 }
-.tr.data-v-3b92c09c {
+.tr.data-v-6602fd8d {
   display: flex;
   background-color: #e6e6e6;
 }
-.tr>._div.data-v-3b92c09c {
+.tr>._div.data-v-6602fd8d {
   text-align: center;
   padding: 10rpx;
   border: 2rpx solid #c6c6c6;
 }
-.tr>._div.data-v-3b92c09c:nth-child(1) {
+.tr>._div.data-v-6602fd8d:nth-child(1) {
   border-right: 2rpx solid #c6c6c6;
   width: 160rpx;
 }
-.tr>._div.data-v-3b92c09c:nth-child(2) {
+.tr>._div.data-v-6602fd8d:nth-child(2) {
   width: 440rpx;
 }
-.bottom.data-v-3b92c09c {
+.bottom.data-v-6602fd8d {
   position: absolute;
   bottom: 40rpx;
   width: 100%;
@@ -42,39 +43,39 @@
   display: flex;
   justify-content: space-around;
 }
-.bottom>._div.data-v-3b92c09c {
+.bottom>._div.data-v-6602fd8d {
   height: 46rpx;
   line-height: 46rpx;
   text-align: center;
 }
-.go.data-v-3b92c09c {
+.go.data-v-6602fd8d {
   width: 120rpx;
   background-color: #f0f0f0;
 }
-.jump.data-v-3b92c09c {
+.jump.data-v-6602fd8d {
   background-color: #f0f0f0;
   width: 60rpx;
   margin-right: -40rpx;
   text-align: center;
 }
-.jump-to.data-v-3b92c09c {
+.jump-to.data-v-6602fd8d {
   margin-right: -40rpx;
 }
-.add.data-v-3b92c09c {
+.add.data-v-6602fd8d {
   margin-right: -20rpx;
 }
-.jian.data-v-3b92c09c {
+.jian.data-v-6602fd8d {
   margin-right: -40rpx;
 }
-.now-number.data-v-3b92c09c {
+.now-number.data-v-6602fd8d {
   width: 120rpx;
   display: flex;
 }
-.number.data-v-3b92c09c {
+.number.data-v-6602fd8d {
   color: #a7907e;
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
-.color.data-v-3b92c09c {
+.color.data-v-6602fd8d {
   background-color: white;
 }

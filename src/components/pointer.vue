@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     click () {
-      this.$emit('toPointer')
+      this.$emit('toPointer', '')
     },
     getValueData () {
       this.$emit('getValueData', this.valueData)

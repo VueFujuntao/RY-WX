@@ -1,12 +1,12 @@
-<template name="9733a880">
-  <view class="_div data-v-675b1f4d">
-    <view class="_div data-v-675b1f4d scanCode-background">
-      <view class="_div data-v-675b1f4d scanCode">
-        <view class="_div data-v-675b1f4d scancode-text" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">扫一扫</view>
+<template name="33c3ecc4">
+  <view class="_div data-v-2a8da0dc">
+    <view class="_div data-v-2a8da0dc scanCode-background">
+      <view class="_div data-v-2a8da0dc scanCode" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-2a8da0dc scancode-text">扫一扫</view>
       </view>
     </view>
-    <view class="_div data-v-675b1f4d pointer" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
-      <view class="_i data-v-675b1f4d"></view> 手工输入
+    <view class="_div data-v-2a8da0dc pointer" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_i data-v-2a8da0dc"></view> 手工输入
     </view>
   </view>
 </template>
