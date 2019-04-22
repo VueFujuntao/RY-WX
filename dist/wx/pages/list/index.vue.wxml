@@ -1,22 +1,22 @@
-<template name="3dec4b08">
-  <view class="_div data-v-6602fd8d list-content">
-    <view class="_div data-v-6602fd8d user-name" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{name}}</view>
-    <view class="_div data-v-6602fd8d table">
-      <view class="_div data-v-6602fd8d tr">
-        <view class="_div data-v-6602fd8d th">序号</view>
-        <view class="_div data-v-6602fd8d th">SN</view>
+<template name="a94264e8">
+  <view class="_div data-v-3b92c09c list-content">
+    <view class="_div data-v-3b92c09c user-name" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{name}}</view>
+    <view class="_div data-v-3b92c09c table">
+      <view class="_div data-v-3b92c09c tr">
+        <view class="_div data-v-3b92c09c th">序号</view>
+        <view class="_div data-v-3b92c09c th">SN</view>
       </view>
-      <view class="_div data-v-6602fd8d tr {{[index % 2 == 0 ? 'color' : '']}}" wx:key="item._id" key="{{item._id}}" wx:for="{{sn}}" wx:for-index="index" wx:for-item="item">
-        <view class="_div data-v-6602fd8d th">{{index + 1 + (pageNumber -1) * 10}}</view>
-        <view class="_div data-v-6602fd8d th">{{item.sn}}</view>
+      <view class="_div data-v-3b92c09c tr {{[index % 2 == 0 ? 'color' : '']}}" wx:key="item._id" key="{{item._id}}" wx:for="{{sn}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-3b92c09c th">{{index + 1 + (pageNumber -1) * 10}}</view>
+        <view class="_div data-v-3b92c09c th">{{item.sn}}</view>
       </view>
     </view>
-    <view class="_div data-v-6602fd8d bottom">
-      <view class="_div data-v-6602fd8d now-number"> 第 <view class="_div data-v-6602fd8d number">{{pageNumber}}</view> 页 </view>
-      <view class="_div data-v-6602fd8d go jian" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">上一页</view>
-      <view class="_div data-v-6602fd8d go add" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">下一页</view>
-      <view class="_div data-v-6602fd8d jump-to">跳转至</view> <input class="_input data-v-6602fd8d jump" value="{{sumpNumber}}" bindinput="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
-      <view class="_div data-v-6602fd8d">页</view>
+    <view class="_div data-v-3b92c09c bottom">
+      <view class="_div data-v-3b92c09c now-number"> 第 <view class="_div data-v-3b92c09c number">{{pageNumber}}</view> 页 </view>
+      <view class="_div data-v-3b92c09c go jian" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">上一页</view>
+      <view class="_div data-v-3b92c09c go add" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">下一页</view>
+      <view class="_div data-v-3b92c09c jump-to">跳转至</view> <input class="_input data-v-3b92c09c jump" value="{{sumpNumber}}" bindinput="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+      <view class="_div data-v-3b92c09c">页</view>
     </view>
   </view>
 </template>

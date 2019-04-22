@@ -1,20 +1,13 @@
 <template>
   <div class="register-context">
-    <!-- 注册成功 弹板 -->
-    <Card v-if="closeSuccessBool" @closeSuccess="closeSuccess"></Card>
     <div class="hr-top"></div>
     <div class="hr-t"></div>
     <div class="form">
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">用户名</span>
-        <input type="text" class="input" v-model="information.username">
+        <input type="text" class="input disabled" v-model="information.username" disabled>
       </div>
-      <!-- <div class="form-item">
-        <i class="item-i">*</i>
-        <span class="text">密码</span>
-        <input type="password" class="input" v-model="information.password">
-      </div> -->
       <div class="form-item">
         <i class="item-i">*</i>
         <span class="text">姓名</span>
@@ -47,7 +40,7 @@
           >{{item.companyName}}</div>
         </div>
       </div>
-      <button class="register" @click="register">确定</button>
+      <button class="register" @click="modify">修改</button>
     </div>
   </div>
 </template>
@@ -65,7 +58,7 @@ export default {
         phone: '',
         company: '',
         projectname: '',
-        password: ''
+        _id: ''
       },
       closeSuccessBool: false,
       projects: [],
@@ -75,13 +68,24 @@ export default {
     }
   },
   created () {
-
   },
   mounted () {
     let that = this
+    // 获取 用户数据
+    that.getUserStorage().then(res => {
+      // 赋值
+      for (let item in res) {
+        for (let nItem in that.information) {
+          if (item === nItem) {
+            that.information[nItem] = res[item]
+          }
+        }
+      }
+    })
+    // 链接数据库
     const db = wx.cloud.database({})
     // 请求项目列表
-    db.collection('project').where({}).get({
+    db.collection('project').get({
       success: function (res) {
         that.$store.dispatch('pushProjects', res.data)
         that.projects = that.$store.getters.getProjects
@@ -91,7 +95,7 @@ export default {
       }
     })
     // 请求公司名称列表
-    db.collection('companys').where({}).get({
+    db.collection('companys').get({
       success: function (res) {
         that.companys = res.data
       },
@@ -101,37 +105,34 @@ export default {
     })
   },
   methods: {
-    register () {
+    // 更新 用户数据
+    modify () {
       let that = this
-      let { name, phone, company, username, password, projectname } = this.information
+      let { name, phone, company, projectname } = this.information
       const db = wx.cloud.database()
-      db.collection('user').add({
+      db.collection('user').doc(that.information._id).update({
         data: {
           name: name,
-          password: password,
           company: company,
           phone: phone,
-          username: username,
           projectname: projectname
         },
         success: function (res) {
-          that.closeSuccessBool = true
-          console.log(res)
+          that.getUserStorage().then(res => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: {...res, ...that.information}
+            })
+            that.$store.dispatch('setUserInfo', {...res, ...that.information})
+            wx.navigateTo({
+              url: '../list/main'
+            })
+          })
         },
         fail: err => {
           console.log(err)
         }
       })
-      // if (name !== '' && phone !== '' && company !== '' && companyNumber !== '' && password !== '') {
-      //   if (this.information.password === this.information.confirmPassword) {
-      //     // this.$server.registerUser({'username': 'czq1111', 'password': 'qwer123456'}).then(response => {
-      //     //   if (response.code === 200) {
-      //     //     console.log(response)
-      //     //     console.log(this)
-      //     //   }
-      //     // })
-      //   }
-      // }
     },
     moneyControl (e) {
     },
@@ -148,6 +149,22 @@ export default {
       console.log(item)
       this[value] = !this[value]
       this.information[name] = item
+    },
+    // 查找缓存
+    getUserStorage () {
+      return new Promise((resolve, reject) => {
+        wx.getStorage({
+          key: 'userInfo',
+          success (res) {
+            if (res.errMsg === 'getStorage:ok') {
+              resolve(res.data)
+            }
+          },
+          fail (re) {
+            console.log(re)
+          }
+        })
+      })
     }
   },
   components: {
@@ -243,5 +260,8 @@ span.text {
 .projects > div {
   height: 25px;
   line-height: 25px;
+}
+.disabled {
+  background-color: rgba(141, 138, 133, 0.1);
 }
 </style>

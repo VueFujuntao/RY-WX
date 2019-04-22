@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "flyio": "^0.6.14",
+    "md5": "^2.2.1",
     "mpvue": "^2.0.0",
+    "sm3": "^1.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

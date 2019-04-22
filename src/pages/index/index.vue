@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="font" @click="toLoginPage">代理商入口</div>
-    <Scancode v-if="compnoentss" @toPointer="toPointer"></Scancode>
+    <Scancode v-if="compnoentss" @getValueData="getValueData" @toPointer="toPointer"></Scancode>
     <Pointer v-if="!compnoentss" @getValueData="getValueData" @toPointer="toPointer"></Pointer>
     <div class="text">
       <div class="erweima"></div>
@@ -32,7 +32,6 @@ export default {
     this.getUserStorage()
   },
   methods: {
-
     // 跳转至 登入页面
     toLoginPage (e) {
       console.log(this.userBool)

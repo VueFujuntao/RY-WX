@@ -39,6 +39,12 @@ export default {
       total: 0
     }
   },
+  onShow () {
+    let { name } = this.$store.getters.getUserInfo
+    if (this.$store.getters.getUserInfo) {
+      this.name = name
+    }
+  },
   mounted () {
     let that = this
     let { name, _id } = that.$store.getters.getUserInfo
