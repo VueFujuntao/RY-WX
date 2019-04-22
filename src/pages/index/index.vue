@@ -108,6 +108,7 @@ export default {
 .input-div {
   height: 25px;
   margin-left: 10px;
+  font-size: 20px;
 }
 .input {
   width: 140px;

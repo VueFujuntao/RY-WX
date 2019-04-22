@@ -76,3 +76,6 @@
 .disabled.data-v-2f8257ec {
   background-color: rgba(141, 138, 133, 0.1);
 }
+.button.data-v-2f8257ec {
+  display: flex;
+}

@@ -26,6 +26,7 @@
 .input-div.data-v-47f2ab14 {
   height: 50rpx;
   margin-left: 20rpx;
+  font-size: 40rpx;
 }
 .input.data-v-47f2ab14 {
   width: 280rpx;

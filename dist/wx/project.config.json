@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -51,6 +51,13 @@
 					"id": -1,
 					"name": "modifyInfor",
 					"pathName": "pages/modifyInfor/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/main",
 					"scene": null
 				}
 			]

@@ -226,16 +226,6 @@ if (false) {(function () {
           console.log(err);
         }
       });
-      // if (name !== '' && phone !== '' && company !== '' && companyNumber !== '' && password !== '') {
-      //   if (this.information.password === this.information.confirmPassword) {
-      //     // this.$server.registerUser({'username': 'czq1111', 'password': 'qwer123456'}).then(response => {
-      //     //   if (response.code === 200) {
-      //     //     console.log(response)
-      //     //     console.log(this)
-      //     //   }
-      //     // })
-      //   }
-      // }
     },
     moneyControl: function moneyControl(e) {},
 

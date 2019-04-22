@@ -189,12 +189,18 @@ var getters = {
 var mutations = {
   setUserInfo: function setUserInfo(state, value) {
     state.userInfo = value;
+  },
+  clearUserInfo: function clearUserInfo(state) {
+    state.userInfo = '';
   }
 };
 
 var actions = {
   setUserInfo: function setUserInfo(context, value) {
     context.commit('setUserInfo', value);
+  },
+  clearUserInfo: function clearUserInfo(context) {
+    context.commit('clearUserInfo');
   }
 };
 

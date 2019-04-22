@@ -6,7 +6,7 @@
     <div class="input">
       <div class="input-div">
         <i class="user icon"></i>
-        <input type="text" v-model="user">
+        <input type="text" v-model="username">
       </div>
     </div>
     <div class="input">
@@ -27,7 +27,7 @@
 export default {
   data () {
     return {
-      user: '',
+      username: '',
       password: ''
     }
   },
@@ -35,18 +35,24 @@ export default {
     // 登入 功能
     login () {
       let that = this
-      if (that.phone == '' || that.password == '') return
+      if (that.username == '' || that.password == '') {
+        return wx.showModal({
+          content: '用户名或密码不能为空'
+        })
+      }
       // 初始化
       const db = wx.cloud.database()
       db.collection('user').where({
-        phone: that.phone,
+        username: that.username,
         password: that.password
       }).get({
         success: function (res) {
-          console.log(res)
           // 登录失败
-          if (res.length === 0) {
-
+          if (res.data.length === 0) {
+            // 弹框 登入失败
+            wx.showModal({
+              content: '用户名或密码错误'
+            })
           } else {
             // 登录成功 跳转至SN页面 保存用户名
             that.$store.dispatch('setUserInfo', res.data[0])

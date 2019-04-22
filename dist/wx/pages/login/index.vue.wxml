@@ -4,7 +4,7 @@
     <view class="_div data-v-50c360eb logo-text">欢迎登陆泰源人员管理</view>
     <view class="_div data-v-50c360eb input">
       <view class="_div data-v-50c360eb input-div">
-        <view class="_i data-v-50c360eb user icon"></view> <input type="text" value="{{user}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-50c360eb" />
+        <view class="_i data-v-50c360eb user icon"></view> <input type="text" value="{{username}}" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-50c360eb" />
       </view>
     </view>
     <view class="_div data-v-50c360eb input">

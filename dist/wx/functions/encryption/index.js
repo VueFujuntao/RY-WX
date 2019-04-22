@@ -12,6 +12,6 @@ exports.main = async (event, context) => {
     openid: wxContext.OPENID,
     appid: wxContext.APPID,
     unionid: wxContext.UNIONID,
-    sm: sm3("加密内容")
+    sm: sm3('加密内容')
   }
 }

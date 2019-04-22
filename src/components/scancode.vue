@@ -21,23 +21,22 @@ export default {
     },
     // 扫一扫 功能
     scanCode () {
-      // let that = this
+      let that = this
       wx.scanCode({
         success: (res) => {
-          console.log(JSON.parse(res.result))
-          wx.cloud.callFunction({
-            name: 'queryComparison',
-            data: {
-              dbName: 'sn',
-              result: JSON.parse(res.result)
-            }
-          }).then(response => {
-            // that.sn = response.result.data
-            console.log(response)
-          })
-          // console.log(JSON.parse(res.result).mac)
-          // console.log(that.$md5(JSON.parse(res.result).mac))
-          // that.$emit('getValueData', that.$md5(JSON.parse(res.result).mac))
+          if (Object.prototype.toString.call(res.result) === '[object String]') {
+            wx.cloud.callFunction({
+              name: 'queryComparison',
+              data: {
+                dbName: 'sn',
+                result: JSON.parse(res.result)
+              }
+            }).then(response => {
+              if (response.result.ok === 1) {
+                that.$emit('getValueData', response.result.result.actuvatuion)
+              }
+            })
+          }
         }
       })
     }

@@ -118,7 +118,7 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      user: '',
+      username: '',
       password: ''
     };
   },
@@ -127,17 +127,25 @@ if (false) {(function () {
     // 登入 功能
     login: function login() {
       var that = this;
-      if (that.phone == '' || that.password == '') return;
+      if (that.username == '' || that.password == '') {
+        return wx.showModal({
+          content: '用户名或密码不能为空'
+        });
+      }
       // 初始化
       var db = wx.cloud.database();
       db.collection('user').where({
-        phone: that.phone,
+        username: that.username,
         password: that.password
       }).get({
         success: function success(res) {
-          console.log(res);
           // 登录失败
-          if (res.length === 0) {} else {
+          if (res.data.length === 0) {
+            // 弹框 登入失败
+            wx.showModal({
+              content: '用户名或密码错误'
+            });
+          } else {
             // 登录成功 跳转至SN页面 保存用户名
             that.$store.dispatch('setUserInfo', res.data[0]);
             wx.setStorage({
@@ -188,20 +196,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.user),
-      expression: "user"
+      value: (_vm.username),
+      expression: "username"
     }],
     attrs: {
       "type": "text",
       "eventid": '0'
     },
     domProps: {
-      "value": (_vm.user)
+      "value": (_vm.username)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.user = $event.target.value
+        _vm.username = $event.target.value
       }
     }
   })], 1)]), _vm._v(" "), _c('div', {

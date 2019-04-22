@@ -25,7 +25,8 @@
         <view class="_div data-v-2f8257ec projects" hidden="{{!(companysBool)}}">
           <view wx:key="item._id" key="{{item._id}}" bindtap="handleProxy" data-eventid="{{'8_'+index}}" data-comkey="{{$k}}" wx:for="{{companys}}" wx:for-index="index" wx:for-item="item" class="_div data-v-2f8257ec">{{item.companyName}}</view>
         </view>
-      </view> <button class="_button data-v-2f8257ec register" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">修改</button>
+      </view>
+      <view class="_div data-v-2f8257ec button"><button class="_button data-v-2f8257ec register" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}">修改</button> <button class="_button data-v-2f8257ec register" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">注销</button></view>
     </view>
   </view>
 </template>

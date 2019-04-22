@@ -143,6 +143,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -228,7 +231,7 @@ if (false) {(function () {
             });
             that.$store.dispatch('setUserInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, res, that.information));
             wx.navigateTo({
-              url: '../list/main'
+              url: '../index/main'
             });
           });
         },
@@ -236,6 +239,18 @@ if (false) {(function () {
           console.log(err);
         }
       });
+    },
+
+    // 清空缓存 跳转
+    logout: function logout() {
+      // 清空本地缓存
+      wx.clearStorage();
+      // 路由跳转
+      wx.navigateTo({
+        url: '../login/main'
+      });
+      // 清空池子数据
+      this.$store.dispatch('clearUserInfo');
     },
     moneyControl: function moneyControl(e) {},
 
@@ -491,7 +506,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_vm._v(_vm._s(item.companyName))])
-  }))], 1), _vm._v(" "), _c('button', {
+  }))], 1), _vm._v(" "), _c('div', {
+    staticClass: "button"
+  }, [_c('button', {
     staticClass: "register",
     attrs: {
       "eventid": '9'
@@ -499,7 +516,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.modify
     }
-  }, [_vm._v("修改")])], 1)])
+  }, [_vm._v("修改")]), _vm._v(" "), _c('button', {
+    staticClass: "register",
+    attrs: {
+      "eventid": '10'
+    },
+    on: {
+      "click": _vm.logout
+    }
+  }, [_vm._v("注销")])], 1)])])
 }
 var staticRenderFns = []
 render._withStripped = true

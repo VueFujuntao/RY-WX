@@ -40,7 +40,10 @@
           >{{item.companyName}}</div>
         </div>
       </div>
-      <button class="register" @click="modify">修改</button>
+     <div class="button">
+        <button class="register" @click="modify">修改</button>
+        <button class="register" @click="logout">注销</button>
+     </div>
     </div>
   </div>
 </template>
@@ -125,7 +128,7 @@ export default {
             })
             that.$store.dispatch('setUserInfo', {...res, ...that.information})
             wx.navigateTo({
-              url: '../list/main'
+              url: '../index/main'
             })
           })
         },
@@ -133,6 +136,17 @@ export default {
           console.log(err)
         }
       })
+    },
+    // 清空缓存 跳转
+    logout () {
+      // 清空本地缓存
+      wx.clearStorage()
+      // 路由跳转
+      wx.navigateTo({
+        url: '../login/main'
+      })
+      // 清空池子数据
+      this.$store.dispatch('clearUserInfo')
     },
     moneyControl (e) {
     },
@@ -263,5 +277,8 @@ span.text {
 }
 .disabled {
   background-color: rgba(141, 138, 133, 0.1);
+}
+.button {
+  display: flex;
 }
 </style>
