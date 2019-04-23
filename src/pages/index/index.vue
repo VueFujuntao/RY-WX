@@ -9,7 +9,7 @@
         激活码:
       </div>
       <div class="input-div">
-        <input  class="input" v-model="valueData" disabled>
+        {{valueData}}
       </div>
     </div>
   </div>
@@ -95,20 +95,32 @@ export default {
   height: 13%;
   position: absolute;
   background-color: white;
-  bottom: 20%;
-  display: flex;
-  flex-direction: row ;
-  align-items: center;
-  justify-content: center;
+  bottom: 15%;
+  padding-left: 20px;
+  padding-top: 10%;
+  /* display: flex; */
+  /* flex-direction: row ; */
+  /* justify-content: center; */
 }
 .text-size {
   margin-left: 10px;
   font-size: 18px;
+  float: left;
 }
 .input-div {
-  height: 25px;
   margin-left: 10px;
   font-size: 20px;
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid red; */
+  color: #f15a24;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  text-align: center;
+  word-wrap:break-word;
+  padding-right: 10px;
+
 }
 .input {
   width: 140px;
@@ -148,5 +160,6 @@ export default {
   height: 28px;
   background-image: url('./erweima.png');
   background-repeat: no-repeat;
+  float: left;
 }
 </style>

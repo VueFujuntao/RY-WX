@@ -5,7 +5,9 @@
     <view class="_div data-v-47f2ab14 text">
       <view class="_div data-v-47f2ab14 erweima"></view>
       <view class="_div data-v-47f2ab14 text-size"> 激活码: </view>
-      <view class="_div data-v-47f2ab14 input-div"><input class="_input data-v-47f2ab14 input" value="{{valueData}}" bindinput="handleProxy" disabled data-eventid="{{'3'}}" data-comkey="{{$k}}" /></view>
+      <view class="_div data-v-47f2ab14 input-div">
+        {{valueData}}
+      </view>
     </view>
   </view>
 </template>

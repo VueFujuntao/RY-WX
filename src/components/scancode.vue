@@ -13,6 +13,9 @@
 </template>
 
 <script>
+import { decode64 } from '../utils/encode64.js'
+import sm from 'sm3'
+
 export default {
   name: 'scancode',
   methods: {
@@ -21,21 +24,29 @@ export default {
     },
     // 扫一扫 功能
     scanCode () {
+      console.log(sm('fujuntaoshabi'))
+      console.log(decode64('eyJzbiI6InF3ZXIiLCJtYWMiOiI2OC1GNy0yOC0xMS1CMy04RCJ9'))
       let that = this
       wx.scanCode({
         success: (res) => {
-          if (Object.prototype.toString.call(res.result) === '[object String]') {
-            wx.cloud.callFunction({
-              name: 'queryComparison',
-              data: {
-                dbName: 'sn',
-                result: JSON.parse(res.result)
-              }
-            }).then(response => {
-              if (response.result.ok === 1) {
-                that.$emit('getValueData', response.result.result.actuvatuion)
-              }
-            })
+          let data = decode64(res.result)
+          if (data) {
+            let result = JSON.parse(data)
+            result.actuvatuion = sm(result.mac)
+            if (Object.prototype.toString.call(res.result) === '[object String]') {
+              wx.cloud.callFunction({
+                name: 'queryComparison',
+                data: {
+                  dbName: 'sn',
+                  result: result
+                }
+              }).then(response => {
+                console.log(response.result.result)
+                if (response.result.ok === 1) {
+                  that.$emit('getValueData', response.result.result)
+                }
+              })
+            }
           }
         }
       })

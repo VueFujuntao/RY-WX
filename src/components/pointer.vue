@@ -19,6 +19,9 @@
 </template>
 
 <script>
+import { decode64 } from '../utils/encode64.js'
+import sm from 'sm3'
+
 export default {
   name: 'pointer',
   data () {
@@ -31,7 +34,23 @@ export default {
       this.$emit('toPointer', '')
     },
     getValueData () {
-      this.$emit('getValueData', this.valueData)
+      const that = this
+      let data = decode64(that.valueData)
+      if (data) {
+        let result = JSON.parse(data)
+        result.actuvatuion = sm(result.mac)
+        wx.cloud.callFunction({
+          name: 'queryComparison',
+          data: {
+            dbName: 'sn',
+            result: result
+          }
+        }).then(response => {
+          if (response.result.ok === 1) {
+            that.$emit('getValueData', response.result.result)
+          }
+        })
+      }
     }
   }
 }
