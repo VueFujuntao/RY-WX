@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="scanCode-background">
-      <div class="scanCode"  @click="scanCode">
+      <div class="scanCode" @click="scanCode">
         <div class="scancode-text">扫一扫</div>
       </div>
     </div>
@@ -13,46 +13,45 @@
 </template>
 
 <script>
-import { decode64 } from '../utils/encode64.js'
-import sm from 'sm3'
+import sm from "sm3";
+import Util from "../utils/index.js";
 
 export default {
-  name: 'scancode',
+  name: "scancode",
   methods: {
-    click () {
-      this.$emit('toPointer')
+    click() {
+      this.$emit("toPointer");
     },
     // 扫一扫 功能
-    scanCode () {
-      console.log(sm('fujuntaoshabi'))
-      console.log(decode64('eyJzbiI6InF3ZXIiLCJtYWMiOiI2OC1GNy0yOC0xMS1CMy04RCJ9'))
-      let that = this
+    scanCode() {
+      let that = this;
       wx.scanCode({
-        success: (res) => {
-          let data = decode64(res.result)
-          if (data) {
-            let result = JSON.parse(data)
-            result.actuvatuion = sm(result.mac)
-            if (Object.prototype.toString.call(res.result) === '[object String]') {
-              wx.cloud.callFunction({
-                name: 'queryComparison',
+        success: res => {
+          let result = Util.decryptByDES(res.result, "travelSkyGuiParameter");
+          let resultP = JSON.parse(result);
+          resultP.actuvatuion = sm(`${result}AB12`);
+          if (
+            Object.prototype.toString.call(res.result) === "[object String]"
+          ) {
+            wx.cloud
+              .callFunction({
+                name: "queryComparison",
                 data: {
-                  dbName: 'sn',
-                  result: result
-                }
-              }).then(response => {
-                console.log(response.result.result)
-                if (response.result.ok === 1) {
-                  that.$emit('getValueData', response.result.result)
+                  dbName: "sn",
+                  result: resultP
                 }
               })
-            }
+              .then(response => {
+                if (response.result.ok === 1) {
+                  that.$emit("getValueData", response.result.result);
+                }
+              });
           }
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -82,7 +81,7 @@ export default {
   right: 50%;
   top: 50%;
   transform: translate(50%, -50%);
-  background-color: rgba(255, 249, 242, .85);
+  background-color: rgba(255, 249, 242, 0.85);
   border-radius: 50%;
   box-shadow: 0 0 10px #ead3bd;
   background-image: url("../../static/images/scanCode.png");
@@ -107,8 +106,8 @@ export default {
   font-size: 18px;
 }
 
-.pointer>i {
-  background-image: url('../../static/images/pointer.png');
+.pointer > i {
+  background-image: url("../../static/images/pointer.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 20px;
@@ -116,6 +115,5 @@ export default {
   position: absolute;
   left: 135px;
 }
-
 </style>
 

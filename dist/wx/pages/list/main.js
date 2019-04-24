@@ -2,114 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([6],{
 
-/***/ 110:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "list-content"
-  }, [_c('div', {
-    staticClass: "user-name",
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.goModifyInfor
-    }
-  }, [_vm._v(_vm._s(_vm.name))]), _vm._v(" "), _c('div', {
-    staticClass: "table"
-  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.sn), function(item, index) {
-    return _c('div', {
-      key: item._id,
-      staticClass: "tr",
-      class: {
-        'color': index % 2 == 0
-      }
-    }, [_c('div', {
-      staticClass: "th"
-    }, [_vm._v(_vm._s(index + 1 + (_vm.pageNumber - 1) * 10))]), _vm._v(" "), _c('div', {
-      staticClass: "th"
-    }, [_vm._v(_vm._s(item.sn))])])
-  })], 2), _vm._v(" "), _c('div', {
-    staticClass: "bottom"
-  }, [_c('div', {
-    staticClass: "now-number"
-  }, [_vm._v("\n      第\n      "), _c('div', {
-    staticClass: "number"
-  }, [_vm._v(_vm._s(_vm.pageNumber))]), _vm._v("\n      页\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "go jian",
-    attrs: {
-      "eventid": '1'
-    },
-    on: {
-      "click": function($event) {
-        _vm.getList('-')
-      }
-    }
-  }, [_vm._v("上一页")]), _vm._v(" "), _c('div', {
-    staticClass: "go add",
-    attrs: {
-      "eventid": '2'
-    },
-    on: {
-      "click": function($event) {
-        _vm.getList('+')
-      }
-    }
-  }, [_vm._v("下一页")]), _vm._v(" "), _c('div', {
-    staticClass: "jump-to"
-  }, [_vm._v("跳转至")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.sumpNumber),
-      expression: "sumpNumber"
-    }],
-    staticClass: "jump",
-    attrs: {
-      "eventid": '3'
-    },
-    domProps: {
-      "value": (_vm.sumpNumber)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.sumpNumber = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('div', [_vm._v("页")])])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "tr"
-  }, [_c('div', {
-    staticClass: "th"
-  }, [_vm._v("序号")]), _vm._v(" "), _c('div', {
-    staticClass: "th"
-  }, [_vm._v("SN")])])
-}]
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-3b92c09c", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 70:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(108);
 
 
 
@@ -124,18 +24,18 @@ app.$mount();
 
 /***/ }),
 
-/***/ 71:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_3b92c09c_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_3b92c09c_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(147);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(72)
+  __webpack_require__(109)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 
 /* template */
@@ -178,20 +78,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 72:
+/***/ 109:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 73:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 
 
@@ -344,6 +244,106 @@ if (false) {(function () {
   }
 });
 
+/***/ }),
+
+/***/ 147:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "list-content"
+  }, [_c('div', {
+    staticClass: "user-name",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.goModifyInfor
+    }
+  }, [_vm._v(_vm._s(_vm.name))]), _vm._v(" "), _c('div', {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.sn), function(item, index) {
+    return _c('div', {
+      key: item._id,
+      staticClass: "tr",
+      class: {
+        'color': index % 2 == 0
+      }
+    }, [_c('div', {
+      staticClass: "th"
+    }, [_vm._v(_vm._s(index + 1 + (_vm.pageNumber - 1) * 10))]), _vm._v(" "), _c('div', {
+      staticClass: "th"
+    }, [_vm._v(_vm._s(item.sn))])])
+  })], 2), _vm._v(" "), _c('div', {
+    staticClass: "bottom"
+  }, [_c('div', {
+    staticClass: "now-number"
+  }, [_vm._v("\n      第\n      "), _c('div', {
+    staticClass: "number"
+  }, [_vm._v(_vm._s(_vm.pageNumber))]), _vm._v("\n      页\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "go jian",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.getList('-')
+      }
+    }
+  }, [_vm._v("上一页")]), _vm._v(" "), _c('div', {
+    staticClass: "go add",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.getList('+')
+      }
+    }
+  }, [_vm._v("下一页")]), _vm._v(" "), _c('div', {
+    staticClass: "jump-to"
+  }, [_vm._v("跳转至")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.sumpNumber),
+      expression: "sumpNumber"
+    }],
+    staticClass: "jump",
+    attrs: {
+      "eventid": '3'
+    },
+    domProps: {
+      "value": (_vm.sumpNumber)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.sumpNumber = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('div', [_vm._v("页")])])])
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "tr"
+  }, [_c('div', {
+    staticClass: "th"
+  }, [_vm._v("序号")]), _vm._v(" "), _c('div', {
+    staticClass: "th"
+  }, [_vm._v("SN")])])
+}]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3b92c09c", esExports)
+  }
+}
+
 /***/ })
 
-},[70]);
+},[107]);

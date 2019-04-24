@@ -5,79 +5,73 @@
     <Pointer v-if="!compnoentss" @getValueData="getValueData" @toPointer="toPointer"></Pointer>
     <div class="text">
       <div class="erweima"></div>
-      <div class="text-size">
-        激活码:
-      </div>
-      <div class="input-div">
-        {{valueData}}
-      </div>
+      <div class="text-size">激活码:</div>
+      <div class="input-div">{{valueData}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import Scancode from '../../components/scancode.vue'
-import Pointer from '../../components/pointer.vue'
+import Scancode from "../../components/scancode.vue";
+import Pointer from "../../components/pointer.vue";
 
 export default {
-  data () {
+  data() {
     return {
       compnoentss: true,
-      valueData: '',
+      valueData: "",
       userBool: false
-    }
+    };
   },
-  created () {},
-  mounted () {
-    this.getUserStorage()
+  created() {},
+  mounted() {
+    this.getUserStorage();
   },
   methods: {
     // 跳转至 登入页面
-    toLoginPage (e) {
-      console.log(this.userBool)
+    toLoginPage(e) {
       if (this.userBool === true) {
         wx.navigateTo({
-          url: '../list/main'
-        })
+          url: "../list/main"
+        });
       } else {
         wx.navigateTo({
-          url: '../login/main'
-        })
+          url: "../login/main"
+        });
       }
     },
     // 手工输入
-    toPointer (value) {
-      this.compnoentss = !this.compnoentss
-      this.valueData = value
+    toPointer(value) {
+      this.compnoentss = !this.compnoentss;
+      this.valueData = value;
     },
     // 获取得到的校验码
-    getValueData (value) {
-      this.valueData = value
+    getValueData(value) {
+      this.valueData = value;
     },
     // 查找缓存
-    getUserStorage () {
-      let that = this
+    getUserStorage() {
+      let that = this;
       wx.getStorage({
-        key: 'userInfo',
-        success (res) {
-          console.log(res)
-          if (res.errMsg === 'getStorage:ok') {
-            that.$store.dispatch('setUserInfo', res.data)
-            that.userBool = true
+        key: "userInfo",
+        success(res) {
+          if (res.errMsg === "getStorage:ok") {
+            that.$store.dispatch("setUserInfo", res.data);
+            that.userBool = true;
           }
         }
-      })
+      });
     }
   },
   components: {
     Scancode,
     Pointer
   },
-  onShow () {
-    console.log(123)
-    this.getUserStorage()
+  onShow() {
+    console.log(123);
+    this.getUserStorage();
   }
-}
+};
 </script>
 
 <style scoped>
@@ -85,7 +79,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: url('../../../static/images/background.png');
+  background-image: url("../../../static/images/background.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -118,9 +112,8 @@ export default {
   top: 0;
   right: 20px;
   text-align: center;
-  word-wrap:break-word;
+  word-wrap: break-word;
   padding-right: 10px;
-
 }
 .input {
   width: 140px;
@@ -133,7 +126,7 @@ export default {
 .button-div {
   height: 25px;
 }
-.button-div>button {
+.button-div > button {
   height: 25px;
   line-height: 25px;
   width: 60px;
@@ -149,7 +142,7 @@ export default {
   margin-right: 10px;
   color: #d2bea7;
   font-size: 18px;
-  background-image: url('./daili.png');
+  background-image: url("./daili.png");
   background-repeat: no-repeat;
   background-position: 100% 80%;
   background-size: 7%;
@@ -158,7 +151,7 @@ export default {
 .erweima {
   width: 38px;
   height: 28px;
-  background-image: url('./erweima.png');
+  background-image: url("./erweima.png");
   background-repeat: no-repeat;
   float: left;
 }

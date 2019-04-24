@@ -1,24 +1,20 @@
-function formatNumber (n) {
-  const str = n.toString()
-  return str[1] ? str : `0${str}`
+/* eslint-disable indent */
+import CryptoJS from 'crypto-js'
+
+class Util {
+  // eslint-disable-next-line space-before-function-paren
+  decryptByDES(ciphertext, key) {
+    let keyHex = CryptoJS.enc.Utf8.parse(key)
+    let decrypted = CryptoJS.DES.decrypt({
+        ciphertext: CryptoJS.enc.Base64.parse(ciphertext)
+      },
+      keyHex, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+      }
+    )
+    return decrypted.toString(CryptoJS.enc.Utf8)
+  }
 }
 
-export function formatTime (date) {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  const t1 = [year, month, day].map(formatNumber).join('/')
-  const t2 = [hour, minute, second].map(formatNumber).join(':')
-
-  return `${t1} ${t2}`
-}
-
-export default {
-  formatNumber,
-  formatTime
-}
+export default new Util()

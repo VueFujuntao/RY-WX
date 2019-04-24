@@ -19,45 +19,44 @@
 </template>
 
 <script>
-import { decode64 } from '../utils/encode64.js'
-import sm from 'sm3'
+import sm from "sm3";
+import Util from "../utils/index.js";
 
 export default {
-  name: 'pointer',
-  data () {
+  name: "pointer",
+  data() {
     return {
-      valueData: ''
-    }
+      valueData: ""
+    };
   },
   methods: {
-    click () {
-      this.$emit('toPointer', '')
+    click() {
+      this.$emit("toPointer", "");
     },
-    getValueData () {
-      const that = this
-      let data = decode64(that.valueData)
-      if (data) {
-        let result = JSON.parse(data)
-        result.actuvatuion = sm(result.mac)
-        wx.cloud.callFunction({
-          name: 'queryComparison',
+    getValueData() {
+      const that = this;
+      let result = Util.decryptByDES(res.result, "travelSkyGuiParameter");
+      let resultP = JSON.parse(result);
+      resultP.actuvatuion = sm(`${result}AB12`);
+      wx.cloud
+        .callFunction({
+          name: "queryComparison",
           data: {
-            dbName: 'sn',
+            dbName: "sn",
             result: result
           }
-        }).then(response => {
-          if (response.result.ok === 1) {
-            that.$emit('getValueData', response.result.result)
-          }
         })
-      }
+        .then(response => {
+          if (response.result.ok === 1) {
+            that.$emit("getValueData", response.result.result);
+          }
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
 .scanCode-background {
   width: 260px;
   height: 260px;
@@ -82,7 +81,7 @@ export default {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   padding-top: 30px;
 }
 
@@ -98,9 +97,9 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.border-border>input {
+.border-border > input {
   color: #f15a24;
   padding-left: 10px;
 }
@@ -111,15 +110,15 @@ export default {
   transform: translate(-50%, 0);
 }
 
-.button-div>button {
+.button-div > button {
   width: 75px;
   left: 50%;
   height: 35px;
   line-height: 35px;
   position: absolute;
   margin-top: 45px;
-  transform: translate(-50%,-50%);
-  background: linear-gradient(to top, #f35e21 , #f47220);
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to top, #f35e21, #f47220);
   color: white;
   font-size: 18px;
 }
@@ -143,8 +142,8 @@ export default {
   font-size: 18px;
 }
 
-.pointer>i {
-  background-image: url('../../static/images/pointer.png');
+.pointer > i {
+  background-image: url("../../static/images/pointer.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 20px;

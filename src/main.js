@@ -2,12 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import store from './store/index.js'
 import server from '@/server/services'
-import md5 from 'md5'
 
 Vue.config.productionTip = false
 Vue.prototype.$server = server
 Vue.prototype.$store = store
-Vue.prototype.$md5 = md5
 
 App.mpType = 'app'
 
@@ -16,5 +14,7 @@ wx.cloud.init({
   traceUser: true
 })
 
-const app = new Vue({App})
+const app = new Vue({
+  App
+})
 app.$mount()
