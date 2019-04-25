@@ -20,7 +20,8 @@ export default {
     return {
       compnoentss: true,
       valueData: "",
-      userBool: false
+      userBool: false,
+      admin: false
     };
   },
   created() {},
@@ -31,9 +32,16 @@ export default {
     // 跳转至 登入页面
     toLoginPage(e) {
       if (this.userBool === true) {
-        wx.navigateTo({
-          url: "../list/main"
-        });
+        // 两种 身份 用户 admin
+        if (this.admin) {
+          wx.navigateTo({
+            url: "../admin/main"
+          });
+        } else {
+          wx.navigateTo({
+            url: "../list/main"
+          });
+        }
       } else {
         wx.navigateTo({
           url: "../login/main"
@@ -58,6 +66,7 @@ export default {
           if (res.errMsg === "getStorage:ok") {
             that.$store.dispatch("setUserInfo", res.data);
             that.userBool = true;
+            if (res.data.admin) that.admin = true;
           }
         }
       });
@@ -68,7 +77,6 @@ export default {
     Pointer
   },
   onShow() {
-    console.log(123);
     this.getUserStorage();
   }
 };

@@ -11,14 +11,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_index_js__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__server_services__ = __webpack_require__(63);
 
 
 
-
+// import server from '@/server/services'
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$server = __WEBPACK_IMPORTED_MODULE_3__server_services__["a" /* default */];
+// Vue.prototype.$server = server
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.$store = __WEBPACK_IMPORTED_MODULE_2__store_index_js__["a" /* default */];
 
 __WEBPACK_IMPORTED_MODULE_1__App__["a" /* default */].mpType = 'app';
@@ -100,41 +99,7 @@ if (false) {(function () {
 "use strict";
 //
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  created: function created() {
-    // 调用API从本地缓存中获取数据
-    /*
-     * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
-     * 微信：mpvue === wx, mpvuePlatform === 'wx'
-     * 头条：mpvue === tt, mpvuePlatform === 'tt'
-     * 百度：mpvue === swan, mpvuePlatform === 'swan'
-     * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
-     */
-    // mpvue.getUserInfo({
-    //   success: function(res) {
-    //     console.log(12)
-    //   }
-    // })
-    // 查看是否授权
-
-    // let logs
-    // if (mpvuePlatform === 'my') {
-    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
-    //   logs.unshift(Date.now())
-    //   mpvue.setStorageSync({
-    //     key: 'logs',
-    //     data: logs
-    //   })
-    // } else {
-    //   logs = mpvue.getStorageSync('logs') || []
-    //   logs.unshift(Date.now())
-    //   mpvue.setStorageSync('logs', logs)
-    // }
-  },
-  mounted: function mounted() {
-    console.log(123);
-  }
-});
+/* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
 
@@ -244,61 +209,6 @@ var actions = {
   mutations: mutations,
   actions: actions
 });
-
-/***/ }),
-
-/***/ 63:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flyio_dist_npm_wx__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_flyio_dist_npm_wx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_flyio_dist_npm_wx__);
-/**
- * @author wxj
- * @date 2019/4/11 15:19
- * @Last Modified by: fujuntao
- * @Last Modified time: 2019-04-16 10:45:03
- */
-
-var fly = new __WEBPACK_IMPORTED_MODULE_0_flyio_dist_npm_wx___default.a();
-
-var host = 'http://192.168.2.234:8990';
-// 添加请求拦截器
-fly.interceptors.request.use(function (config, promise) {
-  // 给所有请求添加自定义header
-  config.headers = {
-    'config': 'flyio',
-    'content-type': 'application/json;charset=UTF-8;'
-  };
-  config.baseURL = host;
-  config.timeout = 10000;
-  // 可以通过promise.reject／resolve直接中止请求
-  // promise.resolve("fake data")
-  return config;
-});
-
-// 添加响应拦截器，响应拦截器会在then/catch处理之前执行
-fly.interceptors.response.use(function (response) {
-  return response.data;
-}, function (err) {
-  return err;
-});
-
-var requests = {
-  getlist: function getlist() {
-    return fly.get('https://www.easy-mock.com/mock/5b70ec93ad23a1570071a34e/Interview/ces');
-  },
-  postlist: function postlist(data) {
-    return fly.post('https://192.168.1.249:8443/', data);
-  },
-
-  // 注册用户
-  registerUser: function registerUser(data) {
-    return fly.put('/agent/save', data);
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (requests);
 
 /***/ })
 

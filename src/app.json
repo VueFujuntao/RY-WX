@@ -4,7 +4,8 @@
     "pages/login/main",
     "pages/registration/main",
     "pages/list/main",
-    "pages/modifyInfor/main"
+    "pages/modifyInfor/main",
+    "pages/admin/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

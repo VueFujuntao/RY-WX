@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([4],{
 
-/***/ 153:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(156);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 154:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2f8257ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2f8257ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(169);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(155)
+  __webpack_require__(157)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
@@ -78,20 +78,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 155:
+/***/ 157:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 156:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_card_vue__ = __webpack_require__(53);
 
@@ -146,20 +146,36 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'modifyInfor',
+  name: "modifyInfor",
   data: function data() {
     return {
       information: {
-        name: '',
-        username: '',
-        phone: '',
-        company: '',
-        projectname: '',
-        _id: ''
+        name: "",
+        username: "",
+        phone: "",
+        company: "",
+        projectname: "",
+        _id: ""
       },
       closeSuccessBool: false,
       projects: [],
@@ -185,9 +201,9 @@ if (false) {(function () {
     // 链接数据库
     var db = wx.cloud.database({});
     // 请求项目列表
-    db.collection('project').get({
+    db.collection("project").get({
       success: function success(res) {
-        that.$store.dispatch('pushProjects', res.data);
+        that.$store.dispatch("pushProjects", res.data);
         that.projects = that.$store.getters.getProjects;
       },
       fail: function fail(res) {
@@ -195,7 +211,7 @@ if (false) {(function () {
       }
     });
     // 请求公司名称列表
-    db.collection('companys').get({
+    db.collection("companys").get({
       success: function success(res) {
         that.companys = res.data;
       },
@@ -216,7 +232,7 @@ if (false) {(function () {
           projectname = _information.projectname;
 
       var db = wx.cloud.database();
-      db.collection('user').doc(that.information._id).update({
+      db.collection("user").doc(that.information._id).update({
         data: {
           name: name,
           company: company,
@@ -226,12 +242,12 @@ if (false) {(function () {
         success: function success(res) {
           that.getUserStorage().then(function (res) {
             wx.setStorage({
-              key: 'userInfo',
+              key: "userInfo",
               data: __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, res, that.information)
             });
-            that.$store.dispatch('setUserInfo', __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, res, that.information));
+            that.$store.dispatch("setUserInfo", __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, res, that.information));
             wx.navigateTo({
-              url: '../index/main'
+              url: "../index/main"
             });
           });
         },
@@ -246,11 +262,11 @@ if (false) {(function () {
       // 清空本地缓存
       wx.clearStorage();
       // 路由跳转
-      wx.navigateTo({
-        url: '../login/main'
+      wx.redirectTo({
+        url: "../login/main"
       });
       // 清空池子数据
-      this.$store.dispatch('clearUserInfo');
+      this.$store.dispatch("clearUserInfo");
     },
     moneyControl: function moneyControl(e) {},
 
@@ -266,7 +282,6 @@ if (false) {(function () {
 
     // 选择项目 公司名字
     selectProject: function selectProject(item, value, name) {
-      console.log(item);
       this[value] = !this[value];
       this.information[name] = item;
     },
@@ -275,9 +290,9 @@ if (false) {(function () {
     getUserStorage: function getUserStorage() {
       return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
         wx.getStorage({
-          key: 'userInfo',
+          key: "userInfo",
           success: function success(res) {
-            if (res.errMsg === 'getStorage:ok') {
+            if (res.errMsg === "getStorage:ok") {
               resolve(res.data);
             }
           },
@@ -295,7 +310,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -539,4 +554,4 @@ if (false) {
 
 /***/ })
 
-},[153]);
+},[155]);

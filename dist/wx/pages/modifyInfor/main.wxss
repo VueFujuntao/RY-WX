@@ -1,13 +1,13 @@
 @import "../../common/vendor.wxss";
 
 .hr-top.data-v-2f8257ec {
-  border: .10rpx solid #dddddd;
+  border: 1rpx solid #dddddd;
 }
 .hr-t.data-v-2f8257ec {
   width: 50%;
   height: 6rpx;
   margin: 0 auto;
-  background: linear-gradient(to right, #27f29b , #08a4f8);
+  background: linear-gradient(to right, #27f29b, #08a4f8);
 }
 .form.data-v-2f8257ec {
   margin: 0 5%;
@@ -17,7 +17,7 @@
   height: 100rpx;
   position: relative;
 }
-.form-item>._input.data-v-2f8257ec {
+.form-item > ._input.data-v-2f8257ec {
   border: 2rpx solid #e7e7e7;
   border-radius: 10rpx;
   width: 470rpx;
@@ -38,7 +38,7 @@
   display: initial;
 }
 .register.data-v-2f8257ec {
-  background: linear-gradient(to right, #f47120 , #f36121);
+  background: linear-gradient(to right, #f47120, #f36121);
   color: white;
   width: 30%;
   margin-top: 70rpx;

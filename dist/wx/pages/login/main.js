@@ -2,14 +2,14 @@ require("../../common/manifest.js")
 require("../../common/vendor.js")
 global.webpackJsonpMpvue([5],{
 
-/***/ 148:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(151);
 
 
 
@@ -24,16 +24,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 149:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_50c360eb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_50c360eb_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_fileExt_template_wxml_script_js_style_wxss_platform_wx_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(154);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(150)
+  __webpack_require__(152)
 }
 var normalizeComponent = __webpack_require__(4)
 /* script */
@@ -78,14 +78,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 150:
+/***/ 152:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 151:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -112,14 +112,12 @@ if (false) {(function () {
 //
 //
 //
-//
-
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     };
   },
 
@@ -127,14 +125,14 @@ if (false) {(function () {
     // 登入 功能
     login: function login() {
       var that = this;
-      if (that.username == '' || that.password == '') {
+      if (that.username == "" || that.password == "") {
         return wx.showModal({
-          content: '用户名或密码不能为空'
+          content: "用户名或密码不能为空"
         });
       }
       // 初始化
       var db = wx.cloud.database();
-      db.collection('user').where({
+      db.collection("user").where({
         username: that.username,
         password: that.password
       }).get({
@@ -143,19 +141,25 @@ if (false) {(function () {
           if (res.data.length === 0) {
             // 弹框 登入失败
             wx.showModal({
-              content: '用户名或密码错误'
+              content: "用户名或密码错误"
             });
           } else {
             // 登录成功 跳转至SN页面 保存用户名
-            that.$store.dispatch('setUserInfo', res.data[0]);
+            that.$store.dispatch("setUserInfo", res.data[0]);
             wx.setStorage({
-              key: 'userInfo',
+              key: "userInfo",
               data: res.data[0]
             });
-            // 重定向 不能返回
-            wx.redirectTo({
-              url: '../list/main'
-            });
+            if (res.data[0].admin) {
+              wx.redirectTo({
+                url: "../admin/main"
+              });
+            } else {
+              // 重定向 不能返回
+              wx.redirectTo({
+                url: "../list/main"
+              });
+            }
           }
         },
         fail: function fail(res) {
@@ -167,7 +171,7 @@ if (false) {(function () {
     // 跳转至注册页面
     register: function register() {
       wx.navigateTo({
-        url: '../registration/main'
+        url: "../registration/main"
       });
     }
   }
@@ -175,7 +179,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 152:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -271,4 +275,4 @@ if (false) {
 
 /***/ })
 
-},[148]);
+},[150]);

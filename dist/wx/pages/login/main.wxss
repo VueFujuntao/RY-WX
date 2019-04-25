@@ -72,9 +72,9 @@
 }
 .login.data-v-50c360eb {
   margin-right: 6rpx !important;
-  background: linear-gradient(to bottom, #f47320 , #f35e21);
+  background: linear-gradient(to bottom, #f47320, #f35e21);
 }
 .register.data-v-50c360eb {
   margin-left: 6rpx !important;
-  background: linear-gradient(to bottom, #cccccc , #cccccc);
+  background: linear-gradient(to bottom, #cccccc, #cccccc);
 }
